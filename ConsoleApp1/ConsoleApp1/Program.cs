@@ -9,13 +9,9 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=FiveOurs;Integrated Security=True";
-
             CreateDatabase();
-
+            WriteData(connectionString);
             ReadData(connectionString);
-            
-
-
             Console.Read();
         }
 
@@ -94,7 +90,27 @@ namespace ConsoleApp1
             }
         }
 
+        static void WriteData(string connectionString)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                int n = 50;
+                for (int i = 0; i < n; i++)
+                {
+                    Random rnd = new Random();
+                    string name = "player" + System.Convert.ToString(i);
+                    int time = rnd.Next(400);
+                    int moves = rnd.Next(600);
+                    string cmd = $"INSERT INTO Results (player_name, game_time, number_of_moves) VALUES ('{name}', {time}, {moves})";
+                    SqlCommand command = new SqlCommand(cmd, connection);
 
+                    command.ExecuteNonQuery();
+                }
+
+            }
+
+        }
 
     }
 }
