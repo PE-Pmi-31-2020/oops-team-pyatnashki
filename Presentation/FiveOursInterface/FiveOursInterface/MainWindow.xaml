@@ -5,23 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FiveOursInterface"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="FiveOurs" Height="450" Width="400" MinHeight="450" MinWidth="400">
     <Grid>
-        <Grid.Effect>
-            <DropShadowEffect/>
-        </Grid.Effect>
-        <Button Content="Quick Play" HorizontalAlignment="Left" Margin="160,217,0,0" VerticalAlignment="Top" Height="53" Width="137" FontFamily="Bahnschrift" FontSize="20" BorderBrush="#FFAC9507" FontWeight="Bold"/>
-        <Button Content="Sign up &amp; Play" HorizontalAlignment="Left" Margin="499,217,0,0" VerticalAlignment="Top" Height="53" Width="137" FontFamily="Bahnschrift" FontSize="20" Foreground="Black" BorderBrush="#FFAC9507" FontWeight="Bold"/>
-        <Button Content="Results" HorizontalAlignment="Center" Margin="0,319,0,0" VerticalAlignment="Top" Height="52" Width="137" FontSize="20" FontFamily="Bahnschrift" BorderBrush="#FFAC9507" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="288,58,0,0" Text="FiveOurs" TextWrapping="Wrap" VerticalAlignment="Top" Height="94" Width="278" FontFamily="Autumn" FontSize="72" FontWeight="Normal" RenderTransformOrigin="0.5,0.5">
-            <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.022"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Grid.Row="1" Content="Fast Game" Style="{StaticResource menuButton}" Click="FastGameBtnClick"/>
+        <Button Grid.Column="2" Grid.Row="1" Content="Sign up &amp; Play" Style="{StaticResource menuButton}" Click="NotFastGameBtnClick"/>
+        <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Content="Results" Style="{StaticResource menuButton}" Click="ResultsBtnClick"/>
+        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource textLogo}">
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>

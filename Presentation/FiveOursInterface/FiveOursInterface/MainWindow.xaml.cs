@@ -24,5 +24,29 @@ namespace FiveOursInterface
         {
             InitializeComponent();
         }
+
+        private void FastGameBtnClick(object sender, RoutedEventArgs e)
+        {
+            GameWindow cw = new GameWindow();
+            cw.ShowInTaskbar = false;
+            cw.Owner = Application.Current.MainWindow;
+            cw.Show();
+        }
+
+        private void NotFastGameBtnClick(object sender, RoutedEventArgs e)
+        {
+            PlayerNameDialog cw = new PlayerNameDialog();
+            cw.ShowInTaskbar = false;
+            cw.Owner = Application.Current.MainWindow;
+            cw.Show();
+        }
+
+        private void ResultsBtnClick(object sender, RoutedEventArgs e)
+        {
+            ResultsWindow cw = new ResultsWindow();
+            cw.ShowInTaskbar = false;
+            cw.Owner = Application.Current.MainWindow;
+            cw.Show();
+        }
     }
 }
