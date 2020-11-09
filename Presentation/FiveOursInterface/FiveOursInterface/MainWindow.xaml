@@ -7,6 +7,29 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.Effect>
+            <DropShadowEffect/>
+        </Grid.Effect>
+        <Button Content="Quick Play" HorizontalAlignment="Left" Margin="160,217,0,0" VerticalAlignment="Top" Height="53" Width="137" FontFamily="Bahnschrift" FontSize="20" BorderBrush="#FFAC9507" FontWeight="Bold"/>
+        <Button Content="Sign up &amp; Play" HorizontalAlignment="Left" Margin="499,217,0,0" VerticalAlignment="Top" Height="53" Width="137" FontFamily="Bahnschrift" FontSize="20" Foreground="Black" BorderBrush="#FFAC9507" FontWeight="Bold"/>
+        <Button Content="Results" HorizontalAlignment="Center" Margin="0,319,0,0" VerticalAlignment="Top" Height="52" Width="137" FontSize="20" FontFamily="Bahnschrift" BorderBrush="#FFAC9507" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="288,58,0,0" Text="FiveOurs" TextWrapping="Wrap" VerticalAlignment="Top" Height="94" Width="278" FontFamily="Autumn" FontSize="72" FontWeight="Normal" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.022"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFAC9507" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+
 
     </Grid>
 </Window>
