@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FiveOursInterface"
         mc:Ignorable="d"
-        Title="PlayerNameDialog" Height="300" Width="600">
+        Title="PlayerNameDialog" Height="280" Width="500" MinHeight="280" MinWidth="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
