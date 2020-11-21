@@ -19,12 +19,12 @@ namespace FiveOursDAL.Repository
             Entities = context.Set<TEntity>();
         }
 
-        public virtual IQueryable<TEntity> GetAll()
+        public IQueryable<TEntity> GetAll()
         {
             return Entities.AsQueryable();
         }
 
-        public virtual void Add(TEntity entity)
+        public void Add(TEntity entity)
         {
             Entities.Add(entity);
         }

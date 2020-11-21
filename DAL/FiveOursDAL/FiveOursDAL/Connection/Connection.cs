@@ -13,7 +13,7 @@ namespace FiveOursDAL.ConnectionString
 
         public static string ReadConnectionString()
         {
-            var jsonString = File.ReadAllText(@"..\..\..\settings.json");
+            var jsonString = File.ReadAllText(@"settings.json");
             var connection =  JsonSerializer.Deserialize<Connection>(jsonString);
             return connection.ConnectionString;
         }
