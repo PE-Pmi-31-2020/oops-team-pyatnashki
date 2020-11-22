@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ResultsDbContext;
+using ResultsDbContext.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +17,7 @@ using System.Windows.Threading;
 namespace FiveOursInterface
 {
 
-    public class GameButton: Button
+    public class GameButton : Button
     {
         public int x { get; set; }
         public int y { get; set; }
@@ -30,10 +32,10 @@ namespace FiveOursInterface
 
         private string _playerName;
 
-        private bool _isClosedByWin = false;
-
         private DispatcherTimer _timer;
         private TimeSpan _timerTime = new TimeSpan(0, 0, 0);
+
+        private int _moves = 0;
 
         private Dictionary<int, GameButton> _buttons = new Dictionary<int, GameButton>(16);
 
@@ -54,7 +56,7 @@ namespace FiveOursInterface
                     btn.y = Grid.GetColumn(btn);
                     _buttons.Add(i++, btn);
                 }
-            }                
+            }
 
             _buttons.Add(15, null);
 
@@ -131,7 +133,7 @@ namespace FiveOursInterface
                 Grid.SetRow(button, _x);
                 Grid.SetColumn(button, _y);
                 _x = x; _y = y;
-                labelCounter.Content = Convert.ToInt32(labelCounter.Content) + 1;
+                labelCounter.Content = ++_moves;
             }
             else
             {
@@ -154,25 +156,52 @@ namespace FiveOursInterface
 
         private void GameCompleted()
         {
-            MessageBox.Show("Niice!", "Completed", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Niice!", "Completed",
+                MessageBoxButton.OK, MessageBoxImage.Information);
+
+            if (_playerName == "")
+            {
+                var mbResult = MessageBox.Show("Do you want to save your result?", "Saving results",
+                MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+                if (mbResult == MessageBoxResult.Yes)
+                {
+                    PlayerNameDialog nameWindow = new PlayerNameDialog();
+
+                    if (nameWindow.ShowDialog() == true)
+                    {
+                        _playerName = nameWindow.Name;
+                    }
+                }
+            }
+            if (_playerName != "")
+            {
+                using (FiveOursContext db = new FiveOursContext())
+                {
+                    var result = new Result()
+                    {
+                        PlayerName = _playerName,
+                        GameTime = _timerTime.Ticks,
+                        MovesCount = _moves
+                    };
+
+                    db.Add(result);
+                    db.SaveChanges();
+                }
+            }
 
             ResultsWindow cw = new ResultsWindow();
             cw.ShowInTaskbar = false;
             cw.Owner = Application.Current.MainWindow;
             cw.Show();
-            _isClosedByWin = true;
+
             Close();
         }
-        
+
 
         private void GameWindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             _timer?.Stop();
-            if(!_isClosedByWin)
-            {
-                Owner.Visibility = Visibility.Visible;
-            }
-            
         }
 
     }

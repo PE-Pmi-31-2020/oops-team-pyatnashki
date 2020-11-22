@@ -24,12 +24,13 @@
 
         <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Content="Results" HorizontalAlignment="Center" FontSize="30"/>
 
-        <ListView Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+        <ListView x:Name="listViewResults" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="Auto">Name</GridViewColumn>
-                    <GridViewColumn Width="Auto">Time</GridViewColumn>
-                    <GridViewColumn Width="Auto">Moves</GridViewColumn>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Time}"/>
+                    <GridViewColumn Header="Moves" DisplayMemberBinding="{Binding Moves}"/>
                 </GridView>
             </ListView.View>
         </ListView>
