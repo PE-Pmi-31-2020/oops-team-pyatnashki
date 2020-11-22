@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FiveOursInterface"
         mc:Ignorable="d"
-        Title="GameWindow" Height="500" Width="500" MinHeight="500" MinWidth="500">
+        Title="FiveOurs" Height="500" Width="500" MinHeight="500" MinWidth="500" Closing="GameWindowClosing">
     <Grid x:Name="grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -42,7 +42,7 @@
         <local:GameButton Grid.Column="3" Grid.Row="5" Style="{StaticResource gameButton}" Click="Button_Click" Content="15"></local:GameButton>
 
         <Label x:Name="labelTimer" Grid.Column="1" Grid.Row="1" Style="{StaticResource timerLabel}"></Label>
-        <Label x:Name="counterLabel" Grid.Column="4" Grid.Row="1" Style="{StaticResource counterLabel}"></Label>
+        <Label x:Name="labelCounter" Grid.Column="4" Grid.Row="1" Style="{StaticResource counterLabel}"></Label>
         
     </Grid>
 </Window>

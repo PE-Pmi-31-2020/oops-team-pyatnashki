@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace FiveOursInterface
 {
@@ -20,6 +11,11 @@ namespace FiveOursInterface
         public ResultsWindow()
         {
             InitializeComponent();
+        }
+
+        private void ResultsWindowClosing(object sender, CancelEventArgs e)
+        {
+            Owner.Visibility = Visibility.Visible;
         }
     }
 }

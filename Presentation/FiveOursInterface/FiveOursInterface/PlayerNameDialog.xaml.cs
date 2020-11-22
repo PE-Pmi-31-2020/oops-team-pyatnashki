@@ -24,16 +24,25 @@ namespace FiveOursInterface
 
         private void OkBtnClick(object sender, RoutedEventArgs e)
         {
-            GameWindow cw = new GameWindow();
+            var playerName = textBoxPlayerName.Text;
+            if(playerName == "")
+            {
+                MessageBox.Show("Player name field can not be empty!", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            GameWindow cw = new GameWindow(playerName);
             cw.ShowInTaskbar = false;
             cw.Owner = Application.Current.MainWindow;
+            Owner.Visibility = Visibility.Hidden;
             cw.Show();
-            this.Close();
+            Close();
         }
 
         private void CancelBtnClick(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
     }

@@ -30,6 +30,7 @@ namespace FiveOursInterface
             GameWindow cw = new GameWindow();
             cw.ShowInTaskbar = false;
             cw.Owner = Application.Current.MainWindow;
+            this.Visibility = Visibility.Hidden;
             cw.Show();
         }
 
@@ -46,6 +47,7 @@ namespace FiveOursInterface
             ResultsWindow cw = new ResultsWindow();
             cw.ShowInTaskbar = false;
             cw.Owner = Application.Current.MainWindow;
+            this.Visibility = Visibility.Hidden;
             cw.Show();
         }
     }

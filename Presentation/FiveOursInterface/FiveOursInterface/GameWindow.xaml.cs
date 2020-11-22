@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace FiveOursInterface
 {
@@ -27,11 +28,22 @@ namespace FiveOursInterface
         private int _x;
         private int _y;
 
+        private string _playerName;
+
+        private bool _isClosedByWin = false;
+
+        private DispatcherTimer _timer;
+        private TimeSpan _timerTime = new TimeSpan(0, 0, 0);
+
         private Dictionary<int, GameButton> _buttons = new Dictionary<int, GameButton>(16);
 
-        public  GameWindow()
+
+        public GameWindow(string playerName = "")
         {
             InitializeComponent();
+
+            _playerName = playerName;
+
             int i = 0;
             foreach (var obj in grid.Children)
             {
@@ -47,51 +59,32 @@ namespace FiveOursInterface
             _buttons.Add(15, null);
 
             Random();
+
+            InitializeTimer();
         }
 
-        protected void Button_Click(object sender, RoutedEventArgs e)
+
+        public void InitializeTimer()
         {
-            var button = (GameButton)sender;
-            int x = Grid.GetRow(button);
-            int y = Grid.GetColumn(button);
-
-            if ((Math.Abs(_x - x) == 1 && _y == y)
-                 || (Math.Abs(_y - y) == 1 && _x == x))
+            _timer = new DispatcherTimer
             {
-                Grid.SetRow(button, _x);
-                Grid.SetColumn(button, _y);
-                _x = x; _y = y;
-                counterLabel.Content = Convert.ToInt32(counterLabel.Content) + 1;
-            }
-            else
-            {
-                return;
-            }
+                Interval = TimeSpan.FromSeconds(1)
+            };
 
-            bool ok = _buttons.Values
-                .Where(b => b != null)
-                .All(b => b.x == Grid.GetRow(b)
-                       && b.y == Grid.GetColumn(b));
+            _timer.Tick += timerTick;
+            _timer.Start();
+        }
 
-            if (!ok)
-            {
-                return;
-            }                
-
-            MessageBox.Show("Completed Successfully!");
-
-            ResultsWindow cw = new ResultsWindow();
-            cw.ShowInTaskbar = false;
-            cw.Owner = Application.Current.MainWindow;
-            cw.Show();
-            this.Close();
+        void timerTick(object sender, EventArgs e)
+        {
+            _timerTime = _timerTime.Add(new TimeSpan(0, 0, 1));
+            labelTimer.Content = _timerTime.ToString();
         }
 
 
         private void Random()
         {
-
-            var r = new Random();
+            var rand = new Random();
             var a = new List<int>(16);
             var v = new List<int>(_buttons.Keys);
 
@@ -102,7 +95,7 @@ namespace FiveOursInterface
                 {
                     do
                     {
-                        k = r.Next(0, v.Count);
+                        k = rand.Next(0, v.Count);
                     }
                     while (a.Any(o => o == v[k]));
 
@@ -123,7 +116,64 @@ namespace FiveOursInterface
                     n++;
                 }
             }
-                
+
         }
+
+        protected void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var button = (GameButton)sender;
+            int x = Grid.GetRow(button);
+            int y = Grid.GetColumn(button);
+
+            if ((Math.Abs(_x - x) == 1 && _y == y)
+                 || (Math.Abs(_y - y) == 1 && _x == x))
+            {
+                Grid.SetRow(button, _x);
+                Grid.SetColumn(button, _y);
+                _x = x; _y = y;
+                labelCounter.Content = Convert.ToInt32(labelCounter.Content) + 1;
+            }
+            else
+            {
+                return;
+            }
+
+            bool ok = _buttons.Values
+                .Where(b => b != null)
+                .All(b => b.x == Grid.GetRow(b)
+                       && b.y == Grid.GetColumn(b));
+
+            if (!ok)
+            {
+                //return;
+            }
+
+            _timer.Stop();
+            GameCompleted();
+        }
+
+        private void GameCompleted()
+        {
+            MessageBox.Show("Niice!", "Completed", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            ResultsWindow cw = new ResultsWindow();
+            cw.ShowInTaskbar = false;
+            cw.Owner = Application.Current.MainWindow;
+            cw.Show();
+            _isClosedByWin = true;
+            Close();
+        }
+        
+
+        private void GameWindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _timer?.Stop();
+            if(!_isClosedByWin)
+            {
+                Owner.Visibility = Visibility.Visible;
+            }
+            
+        }
+
     }
 }

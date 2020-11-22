@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FiveOursInterface"
         mc:Ignorable="d"
-        Title="ResultsWindow" Height="500" Width="400" MinHeight="500" MinWidth="400">
+        Title="FiveOurs" Height="500" Width="400" MinHeight="500" MinWidth="400" Closing="ResultsWindowClosing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
