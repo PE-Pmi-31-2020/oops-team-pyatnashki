@@ -36,10 +36,16 @@ namespace FiveOursInterface
 
         private void NotFastGameBtnClick(object sender, RoutedEventArgs e)
         {
-            PlayerNameDialog cw = new PlayerNameDialog();
-            cw.ShowInTaskbar = false;
-            cw.Owner = Application.Current.MainWindow;
-            cw.Show();
+            PlayerNameDialog nameWindow = new PlayerNameDialog();
+
+            if (nameWindow.ShowDialog() == true)
+            {
+                GameWindow cw = new GameWindow(nameWindow.Name);
+                cw.ShowInTaskbar = false;
+                cw.Owner = Application.Current.MainWindow;
+                this.Visibility = Visibility.Hidden;
+                cw.Show();
+            }
         }
 
         private void ResultsBtnClick(object sender, RoutedEventArgs e)

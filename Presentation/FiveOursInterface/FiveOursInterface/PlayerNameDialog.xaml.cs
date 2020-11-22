@@ -17,33 +17,31 @@ namespace FiveOursInterface
     /// </summary>
     public partial class PlayerNameDialog : Window
     {
-        public PlayerNameDialog()
+        public string Name
+        {
+            get { return textBoxPlayerName.Text; }
+        }
+
+        private bool _isForSaving;
+
+        public PlayerNameDialog(bool isForSaving = false)
         {
             InitializeComponent();
+
+            _isForSaving = isForSaving;
         }
 
         private void OkBtnClick(object sender, RoutedEventArgs e)
         {
+            
             var playerName = textBoxPlayerName.Text;
-            if(playerName == "")
+            if (playerName == "")
             {
                 MessageBox.Show("Player name field can not be empty!", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
-            GameWindow cw = new GameWindow(playerName);
-            cw.ShowInTaskbar = false;
-            cw.Owner = Application.Current.MainWindow;
-            Owner.Visibility = Visibility.Hidden;
-            cw.Show();
-            Close();
+            this.DialogResult = true;
         }
-
-        private void CancelBtnClick(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
     }
 }
