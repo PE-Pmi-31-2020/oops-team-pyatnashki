@@ -34,13 +34,15 @@ namespace FiveOursInterface
             InitializeComponent();
             int i = 0;
             foreach (var obj in grid.Children)
+            {
                 if (obj is GameButton)
                 {
                     var btn = (GameButton)obj;
-                    btn.x= Grid.GetRow(btn);
+                    btn.x = Grid.GetRow(btn);
                     btn.y = Grid.GetColumn(btn);
                     _buttons.Add(i++, btn);
                 }
+            }                
 
             _buttons.Add(15, null);
 
@@ -61,14 +63,20 @@ namespace FiveOursInterface
                 _x = x; _y = y;
                 counterLabel.Content = Convert.ToInt32(counterLabel.Content) + 1;
             }
-            else return;
+            else
+            {
+                return;
+            }
 
             bool ok = _buttons.Values
                 .Where(b => b != null)
                 .All(b => b.x == Grid.GetRow(b)
                        && b.y == Grid.GetColumn(b));
 
-            if (!ok) return;
+            if (!ok)
+            {
+                return;
+            }                
 
             MessageBox.Show("Completed Successfully!");
 
@@ -89,6 +97,7 @@ namespace FiveOursInterface
 
             int k = 0, n = 0;
             for (var x = 2; x < 6; x++)
+            {
                 for (var y = 1; y < 5; y++)
                 {
                     do
@@ -113,6 +122,8 @@ namespace FiveOursInterface
                     }
                     n++;
                 }
+            }
+                
         }
     }
 }
