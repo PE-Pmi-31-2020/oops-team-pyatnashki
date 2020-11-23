@@ -35,6 +35,8 @@ namespace FiveOursInterface
         private DispatcherTimer _timer;
         private TimeSpan _timerTime = new TimeSpan(0, 0, 0);
 
+        private bool _isClosingByEndingGame = false;
+
         private int _moves = 0;
 
         private Dictionary<int, GameButton> _buttons = new Dictionary<int, GameButton>(16);
@@ -195,6 +197,7 @@ namespace FiveOursInterface
             cw.Owner = Application.Current.MainWindow;
             cw.Show();
 
+            _isClosingByEndingGame = true;
             Close();
         }
 
@@ -202,6 +205,10 @@ namespace FiveOursInterface
         private void GameWindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             _timer?.Stop();
+            if(!_isClosingByEndingGame)
+            {
+                Owner.Visibility = Visibility.Visible;
+            }
         }
 
     }
