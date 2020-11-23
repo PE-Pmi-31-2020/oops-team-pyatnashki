@@ -7,9 +7,9 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Height" Value="54"/>
         <Setter Property="Width" Value="138"/>
-        <Setter Property="FontFamily" Value="Bahnschrift"/>
+        <Setter Property="FontFamily" Value="OCR A Extended"/>
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="BorderBrush" Value="#FFAC9507"/>
+        <Setter Property="BorderBrush" Value="#FF758DA8"/>
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
 
@@ -18,9 +18,9 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Text" Value="FiveOurs"/>
         <Setter Property="Height" Value="94"/>
-        <Setter Property="FontFamily" Value="Bahnschrift"/>
-        <Setter Property="FontSize" Value="72"/>
-        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontFamily" Value="OCR A Extended"/>
+        <Setter Property="FontSize" Value="52"/>
+        <Setter Property="FontWeight" Value="Bold"/>
         
     </Style>
 

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FiveOursInterface"
         mc:Ignorable="d"
         Title="Player name" Height="280" Width="500" MinHeight="280" MinWidth="500" ResizeMode="CanMinimize">
-    <Grid>
+    <Grid Background="#FFDBE7F7">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -22,9 +22,9 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Content="Enter your name: " Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="32"/>
-        <TextBox x:Name="textBoxPlayerName" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="10 10 10 10"/>
-        <Button IsDefault="True" Grid.Row="3" Grid.Column="1" Margin="10 10 10 15" Content="Ok" Click="OkBtnClick"/>
-        <Button IsCancel="True" Grid.Row="3" Grid.Column="3" Margin="10 10 10 15" Content="Cancel"/>
+        <Label Content="Enter your name: " Grid.Row="1" Grid.ColumnSpan="4" FontSize="24" FontFamily="OCR A Extended" Margin="27,4,73,47" Grid.RowSpan="2" Grid.Column="1"/>
+        <TextBox x:Name="textBoxPlayerName" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="10 10 10 10" BorderBrush="#FFC4C9D8"/>
+        <Button IsDefault="True" Grid.Row="3" Grid.Column="1" Margin="10,18,10,7" Content="Ok" Click="OkBtnClick" FontFamily="OCR A Extended" FontSize="18" Background="#FF758DA8" BorderBrush="#FF7B84AE"/>
+        <Button IsCancel="True" Grid.Row="3" Grid.Column="3" Margin="10,18,10,7" Content="Cancel" FontFamily="OCR A Extended" FontSize="16" Background="#FF758DA8" BorderBrush="#FF7B84AE"/>
     </Grid>
 </Window>

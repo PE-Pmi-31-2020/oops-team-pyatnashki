@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FiveOursInterface"
         mc:Ignorable="d"
         Title="FiveOurs" Height="500" Width="400" MinHeight="500" MinWidth="400" Closing="ResultsWindowClosing">
-    <Grid>
+    <Grid Background="#FFDBE7F7">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="50"/>
@@ -22,7 +22,7 @@
             <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Content="Results" HorizontalAlignment="Center" FontSize="30"/>
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Content="Results" HorizontalAlignment="Center" FontSize="30" FontFamily="OCR A Extended"/>
 
         <ListView x:Name="listViewResults" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <ListView.View>
