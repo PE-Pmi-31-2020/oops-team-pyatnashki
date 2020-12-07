@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
+
+using System.Windows.Media.Animation;
+
 namespace FiveOursInterface
 {
 
@@ -41,13 +44,14 @@ namespace FiveOursInterface
 
         private Dictionary<int, GameButton> _buttons = new Dictionary<int, GameButton>(16);
 
-
+        private DoubleAnimation _btnAnimation = new DoubleAnimation();
         public GameWindow(string playerName = "")
         {
             InitializeComponent();
 
             _playerName = playerName;
-
+           
+           
             int i = 0;
             foreach (var obj in grid.Children)
             {
@@ -149,11 +153,12 @@ namespace FiveOursInterface
 
             if (!ok)
             {
-                //return;
+               // return;
             }
 
             _timer.Stop();
             GameCompleted();
+           
         }
 
         private void GameCompleted()

@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:FiveOursInterface"
         mc:Ignorable="d"
         Title="FiveOurs" Height="500" Width="500" MinHeight="500" MinWidth="500" Closing="GameWindowClosing">
-    <Grid x:Name="grid" Background="#FF879CB2">
+    
+    <Grid x:Name="grid" Background="#FF879CB2" Cursor="">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -25,84 +26,275 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <local:GameButton Grid.Column="1" Grid.Row="2" Style="{StaticResource gameButton}" Click="Button_Click" Content="1" Background="#FFDBE7F7" FontFamily="OCR A Extended">
+
+        <local:GameButton Grid.Column="1" Grid.Row="2" Style="{StaticResource gameButton}" Click="Button_Click" Content="1" Background="#FFDBE7F7" FontFamily="OCR A Extended" RenderTransformOrigin="0.5,0.5">
+           
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
+          
         </local:GameButton>
         <local:GameButton Grid.Column="2" Grid.Row="2" Style="{StaticResource gameButton}" Click="Button_Click" Content="2" FontFamily="OCR A Extended" Background="#FFDBE7F7">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+               
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
         </local:GameButton>
         <local:GameButton Grid.Column="3" Grid.Row="2" Style="{StaticResource gameButton}" Click="Button_Click" Content="3" Background="#FFDBE7F7" FontFamily="OCR A Extended">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            
+            <local:GameButton.Triggers>
+
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                           
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                            <DoubleAnimation 
+                           
+                            Storyboard.TargetProperty="(RotateTransform.Angle)" 
+                            From="0" To="360" Duration="0:0:5" AutoReverse="True"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
         </local:GameButton>
         <local:GameButton Grid.Column="4" Grid.Row="2" Style="{StaticResource gameButton}" Click="Button_Click" Content="4" Background="#FFDBE7F7" FontFamily="OCR A Extended">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
         </local:GameButton>
         <local:GameButton Grid.Column="1" Grid.Row="3" Style="{StaticResource gameButton}" Click="Button_Click" Content="5" FontFamily="OCR A Extended" Background="#FFDBE7F7">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                           
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
         </local:GameButton>
         <local:GameButton Grid.Column="2" Grid.Row="3" Style="{StaticResource gameButton}" Click="Button_Click" Content="6" FontFamily="OCR A Extended" Background="#FFDBE7F7">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
         </local:GameButton>
         <local:GameButton Grid.Column="3" Grid.Row="3" Style="{StaticResource gameButton}" Click="Button_Click" Content="7" FontFamily="OCR A Extended" Background="#FFDBE7F7">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
         </local:GameButton>
         <local:GameButton Grid.Column="4" Grid.Row="3" Style="{StaticResource gameButton}" Click="Button_Click" Content="8" Background="#FFDBE7F7" FontFamily="OCR A Extended">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
+            
         </local:GameButton>
         <local:GameButton Grid.Column="1" Grid.Row="4" Style="{StaticResource gameButton}" Click="Button_Click" Content="9" Background="#FFDBE7F7" FontFamily="OCR A Extended">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
         </local:GameButton>
         <local:GameButton Grid.Column="2" Grid.Row="4" Style="{StaticResource gameButton}" Click="Button_Click" Content="10" Background="#FFDBE7F7" FontFamily="OCR A Extended">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                           
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
         </local:GameButton>
         <local:GameButton Grid.Column="3" Grid.Row="4" Style="{StaticResource gameButton}" Click="Button_Click" Content="11" FontFamily="OCR A Extended" Background="#FFDBE7F7">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                           
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
         </local:GameButton>
         <local:GameButton Grid.Column="4" Grid.Row="4" Style="{StaticResource gameButton}" Click="Button_Click" Content="12" Background="#FFDBE7F7" FontFamily="OCR A Extended">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
         </local:GameButton>
         <local:GameButton Grid.Column="1" Grid.Row="5" Style="{StaticResource gameButton}" Click="Button_Click" Content="13" FontFamily="OCR A Extended" Background="#FFDBE7F7">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
         </local:GameButton>
         <local:GameButton Grid.Column="2" Grid.Row="5" Style="{StaticResource gameButton}" Click="Button_Click" Content="14" Background="#FFDBE7F7" FontFamily="OCR A Extended">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                          
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
         </local:GameButton>
         <local:GameButton Grid.Column="3" Grid.Row="5" Style="{StaticResource gameButton}" Click="Button_Click" Content="15" Background="#FFDBE7F7" FontFamily="OCR A Extended">
             <local:GameButton.Effect>
                 <DropShadowEffect/>
             </local:GameButton.Effect>
+            <local:GameButton.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            
+                            <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                             From="#FFDBE7F7" To="White" Duration="0:0:0.5" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </local:GameButton.Triggers>
         </local:GameButton>
 
         <Label x:Name="labelTimer" Grid.Row="1" Style="{StaticResource timerLabel}" FontFamily="OCR A Extended" Width="189" Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="83,0,0,0" FontSize="18"/>
         <Label x:Name="labelCounter" Grid.Column="4" Grid.Row="1" Style="{StaticResource counterLabel}" FontFamily="OCR A Extended" FontSize="18"></Label>
+        
 
     </Grid>
+    
 </Window>

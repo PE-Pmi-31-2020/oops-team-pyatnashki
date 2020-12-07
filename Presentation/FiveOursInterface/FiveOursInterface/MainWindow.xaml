@@ -16,9 +16,79 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Grid.Row="1" Content="Fast Game" Style="{StaticResource menuButton}" Click="FastGameBtnClick" Background="#FFDBE7F7"/>
-        <Button Grid.Column="2" Grid.Row="1" Content="Sign up &amp; Play" Style="{StaticResource menuButton}" Click="NotFastGameBtnClick" FontSize="15" Background="#FFDBE7F7"/>
-        <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Content="Results" Style="{StaticResource menuButton}" Click="ResultsBtnClick" Background="#FFDBE7F7"/>
+        <Button Grid.Column="0" Grid.Row="1" Content="Fast Game" Style="{StaticResource menuButton}" Click="FastGameBtnClick" Background="#FFDBE7F7" Height="56" Width="134">
+            <Button.Triggers>
+            <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard >
+                            <DoubleAnimation Duration="0:0:0.2" To="0.4" Storyboard.TargetProperty="Opacity"/>
+                            <ThicknessAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="BorderThickness" />
+                            <DoubleAnimation Duration="0:0:0.1" To="65" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation Duration="0:0:0.1" To="145" Storyboard.TargetProperty="Width" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard >
+                            <DoubleAnimation Duration="0:0:0.2" To="1" Storyboard.TargetProperty="Opacity"/>
+                            <ThicknessAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="BorderThickness" />
+                            <DoubleAnimation Duration="0:0:0.1" To="56" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation Duration="0:0:0.1" To="134" Storyboard.TargetProperty="Width" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="1" Content="Sign up &#xD;&#xA;&amp; Play" Style="{StaticResource menuButton}" Click="NotFastGameBtnClick" FontSize="15" Background="#FFDBE7F7" Height="56" Width="134" FontWeight="Bold">
+        <Button.Triggers>
+            <EventTrigger RoutedEvent="Button.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard >
+                        <DoubleAnimation Duration="0:0:0.2" To="0.4" Storyboard.TargetProperty="Opacity"/>
+                            <ThicknessAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="BorderThickness" />
+                            <DoubleAnimation Duration="0:0:0.1" To="65" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation Duration="0:0:0.1" To="145" Storyboard.TargetProperty="Width" />
+                           
+                        </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Button.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard >
+                        <DoubleAnimation Duration="0:0:0.2" To="1" Storyboard.TargetProperty="Opacity"/>
+                            <ThicknessAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="BorderThickness" />
+                            <DoubleAnimation Duration="0:0:0.1" To="56" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation Duration="0:0:0.1" To="134" Storyboard.TargetProperty="Width" />
+                        </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Button.Triggers>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Content="Results" Style="{StaticResource menuButton}" Click="ResultsBtnClick" Background="#FFDBE7F7" Height="56" Width="134">
+        <Button.Triggers>
+            <EventTrigger RoutedEvent="Button.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard >
+                        <DoubleAnimation Duration="0:0:0.2" To="0.4" Storyboard.TargetProperty="Opacity"/>
+                            <ThicknessAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="BorderThickness" />
+                            <DoubleAnimation Duration="0:0:0.1" To="65" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation Duration="0:0:0.1" To="145" Storyboard.TargetProperty="Width" />
+                        </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Button.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard >
+                        <DoubleAnimation Duration="0:0:0.2" To="1" Storyboard.TargetProperty="Opacity"/>
+                            <ThicknessAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="BorderThickness" />
+                            <DoubleAnimation Duration="0:0:0.1" To="56" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation Duration="0:0:0.1" To="134" Storyboard.TargetProperty="Width" />
+                        </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Button.Triggers>
+        </Button>
         <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource textLogo}">
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -27,6 +97,7 @@
                 </LinearGradientBrush>
             </TextBlock.Foreground>
         </TextBlock>
+
 
 
     </Grid>
