@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FiveOursInterface.Logger;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,7 @@ namespace FiveOursInterface
             cw.ShowInTaskbar = false;
             cw.Owner = Application.Current.MainWindow;
             this.Visibility = Visibility.Hidden;
+            LogHelper.Log(LogTarget.File, "Fast game started.");
             cw.Show();
         }
 
@@ -44,6 +46,7 @@ namespace FiveOursInterface
                 cw.ShowInTaskbar = false;
                 cw.Owner = Application.Current.MainWindow;
                 this.Visibility = Visibility.Hidden;
+                LogHelper.Log(LogTarget.File, $"Usual game started. Player name: {nameWindow.Name}");
                 cw.Show();
             }
         }

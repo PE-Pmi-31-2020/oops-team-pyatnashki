@@ -16,6 +16,7 @@ using System.Windows.Threading;
 
 
 using System.Windows.Media.Animation;
+using FiveOursInterface.Logger;
 
 namespace FiveOursInterface
 {
@@ -45,6 +46,7 @@ namespace FiveOursInterface
         private Dictionary<int, GameButton> _buttons = new Dictionary<int, GameButton>(16);
 
         private DoubleAnimation _btnAnimation = new DoubleAnimation();
+
         public GameWindow(string playerName = "")
         {
             InitializeComponent();
@@ -153,7 +155,7 @@ namespace FiveOursInterface
 
             if (!ok)
             {
-               // return;
+                return;
             }
 
             _timer.Stop();
@@ -180,6 +182,10 @@ namespace FiveOursInterface
                         _playerName = nameWindow.Name;
                     }
                 }
+                else
+                {
+                    LogHelper.Log(LogTarget.File, $"Game completed without saving results.");
+                }
             }
             if (_playerName != "")
             {
@@ -195,6 +201,8 @@ namespace FiveOursInterface
                     db.Add(result);
                     db.SaveChanges();
                 }
+                LogHelper.Log(LogTarget.File, 
+                    $"Game completed with saving results. Player name: {_playerName}");
             }
 
             ResultsWindow cw = new ResultsWindow();
@@ -212,6 +220,16 @@ namespace FiveOursInterface
             _timer?.Stop();
             if(!_isClosingByEndingGame)
             {
+                if(_playerName == "")
+                {
+                    LogHelper.Log(LogTarget.File, $"Game closed unfinished.");
+                }
+                else
+                {
+                    LogHelper.Log(LogTarget.File,
+                    $"Game closed unfinished. Player name: {_playerName}");
+                }
+                    
                 Owner.Visibility = Visibility.Visible;
             }
         }
