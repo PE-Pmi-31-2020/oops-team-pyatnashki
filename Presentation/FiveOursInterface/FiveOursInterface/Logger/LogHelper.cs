@@ -8,13 +8,13 @@ namespace FiveOursInterface.Logger
     {
         private static LogBase _logger = null;
 
-        public static void Log(LogTarget target, string message)
+        public static void Log(LogTarget target, LogType logType, string message)
         {
             switch (target)
             {
                 case LogTarget.File:
                     _logger = new FileLogger();
-                    _logger.Log($"{DateTime.Now} | {message}");
+                    _logger.Log($"{DateTime.Now} | {logType} | {message}");
                     break;
                 default:
                     return;

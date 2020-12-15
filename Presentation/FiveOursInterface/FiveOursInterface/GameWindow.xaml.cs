@@ -184,7 +184,7 @@ namespace FiveOursInterface
                 }
                 else
                 {
-                    LogHelper.Log(LogTarget.File, $"Game completed without saving results.");
+                    LogHelper.Log(LogTarget.File, LogType.Info, $"Game completed without saving results.");
                 }
             }
             if (_playerName != "")
@@ -201,7 +201,7 @@ namespace FiveOursInterface
                     db.Add(result);
                     db.SaveChanges();
                 }
-                LogHelper.Log(LogTarget.File, 
+                LogHelper.Log(LogTarget.File, LogType.Info,
                     $"Game completed with saving results. Player name: {_playerName}");
             }
 
@@ -222,11 +222,11 @@ namespace FiveOursInterface
             {
                 if(_playerName == "")
                 {
-                    LogHelper.Log(LogTarget.File, $"Game closed unfinished.");
+                    LogHelper.Log(LogTarget.File, LogType.Info, $"Game closed unfinished.");
                 }
                 else
                 {
-                    LogHelper.Log(LogTarget.File,
+                    LogHelper.Log(LogTarget.File, LogType.Info,
                     $"Game closed unfinished. Player name: {_playerName}");
                 }
                     
