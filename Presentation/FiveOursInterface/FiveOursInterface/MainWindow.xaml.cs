@@ -28,36 +28,57 @@ namespace FiveOursInterface
 
         private void FastGameBtnClick(object sender, RoutedEventArgs e)
         {
-            GameWindow cw = new GameWindow();
-            cw.ShowInTaskbar = false;
-            cw.Owner = Application.Current.MainWindow;
-            this.Visibility = Visibility.Hidden;
-            LogHelper.Log(LogTarget.File, "Fast game started.");
-            cw.Show();
+            try
+            {
+                GameWindow cw = new GameWindow();
+                cw.ShowInTaskbar = false;
+                cw.Owner = Application.Current.MainWindow;
+                this.Visibility = Visibility.Hidden;
+                LogHelper.Log(LogTarget.File, LogType.Info, "Fast game started.");
+                cw.Show();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(LogTarget.File, LogType.Fatal, ex.ToString());
+            }
         }
 
         private void NotFastGameBtnClick(object sender, RoutedEventArgs e)
         {
-            PlayerNameDialog nameWindow = new PlayerNameDialog();
-
-            if (nameWindow.ShowDialog() == true)
+            try
             {
-                GameWindow cw = new GameWindow(nameWindow.Name);
-                cw.ShowInTaskbar = false;
-                cw.Owner = Application.Current.MainWindow;
-                this.Visibility = Visibility.Hidden;
-                LogHelper.Log(LogTarget.File, $"Usual game started. Player name: {nameWindow.Name}");
-                cw.Show();
+                PlayerNameDialog nameWindow = new PlayerNameDialog();
+
+                if (nameWindow.ShowDialog() == true)
+                {
+                    GameWindow cw = new GameWindow(nameWindow.Name);
+                    cw.ShowInTaskbar = false;
+                    cw.Owner = Application.Current.MainWindow;
+                    this.Visibility = Visibility.Hidden;
+                    LogHelper.Log(LogTarget.File, LogType.Info, $"Usual game started. Player name: {nameWindow.Name}");
+                    cw.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(LogTarget.File, LogType.Fatal, ex.ToString());
             }
         }
 
         private void ResultsBtnClick(object sender, RoutedEventArgs e)
         {
-            ResultsWindow cw = new ResultsWindow();
-            cw.ShowInTaskbar = false;
-            cw.Owner = Application.Current.MainWindow;
-            this.Visibility = Visibility.Hidden;
-            cw.Show();
+            try
+            {
+                ResultsWindow cw = new ResultsWindow();
+                cw.ShowInTaskbar = false;
+                cw.Owner = Application.Current.MainWindow;
+                this.Visibility = Visibility.Hidden;
+                cw.Show();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(LogTarget.File, LogType.Fatal, ex.ToString());
+            }
         }
     }
 }

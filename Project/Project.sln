@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiveOursBLL", "..\BLL\FiveO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiveOursDAL", "..\DAL\FiveOursDAL\FiveOursDAL\FiveOursDAL.csproj", "{9210A24B-2F36-4E74-8353-DD346EB78E2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{ECCBFD56-F1E6-4872-90D2-8B473665310D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{9210A24B-2F36-4E74-8353-DD346EB78E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9210A24B-2F36-4E74-8353-DD346EB78E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9210A24B-2F36-4E74-8353-DD346EB78E2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECCBFD56-F1E6-4872-90D2-8B473665310D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECCBFD56-F1E6-4872-90D2-8B473665310D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECCBFD56-F1E6-4872-90D2-8B473665310D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECCBFD56-F1E6-4872-90D2-8B473665310D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
